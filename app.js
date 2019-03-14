@@ -181,8 +181,7 @@
 
     //attach event listeners
     app.attachListener = function () {
-        document.querySelectorAll('.movie-wrap').forEach(e => {
-            // console.log(e);
+        document.querySelectorAll('.movie-wrap').forEach(function(e){
             e.addEventListener('click', app.openMovieTrailer);
         });
     }
