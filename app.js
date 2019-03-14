@@ -66,6 +66,8 @@
         let movie = app.data[eventCode];
         let date = app.getDateYear(movie.ShowDate);
         let ytid = app.youTubeVideoid(movie.TrailerURL);
+        let geners = movie.EventGenre.split("|");
+
         let html = `
         <div class="movie-trailer-wrap">
             <div class="movie-trailer-left">
@@ -76,7 +78,13 @@
                     <div class="movie-trailer-name">${movie.EventTitle}</div>
                     <div class="movie-trailer-language">${movie.EventLanguage}</div>
                     <div class="movie-trailer-gener">
-                        <span class="gener-name">${movie.EventGenre}</span>
+        `;
+        geners.forEach(function(gener){
+            html += `
+                            <span class="gener-name">${gener}</span>
+                    `;
+        });
+        html += `
                     </div>
                     <div class="movie-trailer-stats">
                         <div class="mts-item">
@@ -106,10 +114,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="movie-trailer-summary">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel minima velit similique culpa facere ipsam iure reiciendis aliquam, cupiditate facilis, expedita eius, corporis autem itaque esse eaque. Perspiciatis, molestiae error!
-                    </div>
-                    <div class="read-more">Read More</div>
                 </div>
                 <div class="movie-stats-wrap">
                     <div class="movie-stats movie-stats-green">
