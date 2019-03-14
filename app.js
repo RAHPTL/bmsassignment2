@@ -55,6 +55,7 @@
 
         document.querySelector('#close').addEventListener('click',function(){
             document.querySelector('.movie-trailer-wrap').remove();
+            app.showActiveState();
         });
     }
 
