@@ -41,7 +41,7 @@
     //show trailer box on click
     app.openMovieTrailer = function(){
         let self = this;
-        let trailerWrap = document.getElementsByClassName('movie-trailer-wrap')[0];
+        let trailerWrap = document.querySelector('.movie-trailer-wrap');
 
         if (trailerWrap) trailerWrap.remove();
 
@@ -50,8 +50,12 @@
         let html = app.getTrailerBox(self.id);
         document.querySelector('#gallery').insertBefore(html,self.parentNode);
 
-        let offset = document.getElementsByClassName('movie-trailer-wrap')[0].offsetTop;
+        let offset = document.querySelector('.movie-trailer-wrap').offsetTop;
         document.documentElement.scrollTop = offset;
+
+        document.querySelector('#close').addEventListener('click',function(){
+            document.querySelector('.movie-trailer-wrap').remove();
+        });
     }
 
     app.showActiveState = function(element){
@@ -74,6 +78,11 @@
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${ytid}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="movie-trailer-right">
+                <div class="close" id="close">
+                    <svg style="width:35px;height:35px" viewBox="0 0 24 24">
+                        <path fill="#ffffff" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </div>
                 <div class="movie-info">
                     <div class="movie-trailer-name">${movie.EventTitle}</div>
                     <div class="movie-trailer-language">${movie.EventLanguage}</div>

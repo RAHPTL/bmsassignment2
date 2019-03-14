@@ -171,6 +171,16 @@ html,body{
     position: relative;
 }
 
+.close{
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
 .movie-trailer-name{
     font-size: 24px;
     font-weight: 600;
